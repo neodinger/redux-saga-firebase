@@ -31,8 +31,8 @@
     "@babel/runtime": "^7.4.4"
   },
   "peerDependencies": {
-    "firebase": "^5.0.4",
-    "redux-saga": "^1.0.0"
+    "firebase": "^6.2.4",
+    "redux-saga": "^1.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -45,10 +45,10 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "eslint": "^6.0.0",
-    "firebase": "^6.2.0",
+    "firebase": "^6.2.4",
     "jest": "^24.8.0",
     "prettier": "^1.17.0",
-    "redux-saga": "^1.0.2",
+    "redux-saga": "^1.0.4",
     "rimraf": "^2.6.3",
     "typescript": "^3.4.5",
     "whatwg-fetch": "^3.0.0"
