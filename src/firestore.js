@@ -8,8 +8,8 @@ export const getCollectionRef = (rsf, pathOrRef) => {
   assert(
     !!rsf.app.firestore,
     "Firestore isn't installed. " +
-      "Did you forget to `import '@firebase/firestore'`? " +
-      'See https://redux-saga-firebase.js.org/ for more information.',
+    "Did you forget to `import '@firebase/firestore'`? " +
+    'See https://redux-saga-firebase.js.org/ for more information.',
   )
 
   return typeof pathOrRef === 'string'
@@ -21,8 +21,8 @@ export const getDocumentRef = (rsf, pathOrRef) => {
   assert(
     !!rsf.app.firestore,
     "Firestore isn't installed. " +
-      "Did you forget to `import '@firebase/firestore'`? " +
-      'See https://redux-saga-firebase.js.org/ for more information.',
+    "Did you forget to `import '@firebase/firestore'`? " +
+    'See https://redux-saga-firebase.js.org/ for more information.',
   )
 
   return typeof pathOrRef === 'string' ? rsf.app.firestore().doc(pathOrRef) : pathOrRef
@@ -82,7 +82,7 @@ function* updateDocument(documentRef, ...args) {
   return yield call([doc, doc.update], ...args)
 }
 
-function* syncCollection(pathOrRef, options) {
+function* syncCollection(pathOrRef, options, args) {
   const channel = yield call(
     this.firestore.channel,
     pathOrRef,
@@ -90,7 +90,7 @@ function* syncCollection(pathOrRef, options) {
     undefined,
     options.snapshotListenOptions,
   )
-  yield fork(syncChannel, channel, options)
+  yield fork(syncChannel, channel, options, args)
 }
 
 function* syncDocument(pathOrRef, options) {
