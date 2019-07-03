@@ -82,7 +82,7 @@ function* updateDocument(documentRef, ...args) {
   return yield call([doc, doc.update], ...args)
 }
 
-function* syncCollection(pathOrRef, options, args) {
+function* syncCollection(pathOrRef, options, ...args) {
   const channel = yield call(
     this.firestore.channel,
     pathOrRef,
@@ -90,10 +90,10 @@ function* syncCollection(pathOrRef, options, args) {
     undefined,
     options.snapshotListenOptions,
   )
-  yield fork(syncChannel, channel, options, args)
+  yield fork(syncChannel, channel, options, ...args)
 }
 
-function* syncDocument(pathOrRef, options) {
+function* syncDocument(pathOrRef, options, ...args) {
   const channel = yield call(
     this.firestore.channel,
     pathOrRef,
@@ -101,7 +101,7 @@ function* syncDocument(pathOrRef, options) {
     undefined,
     options.snapshotListenOptions,
   )
-  yield fork(syncChannel, channel, options)
+  yield fork(syncChannel, channel, options, ...args)
 }
 
 export default {
